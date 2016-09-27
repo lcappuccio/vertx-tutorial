@@ -29,6 +29,11 @@ public class MainVerticle extends AbstractVerticle {
 		});
 	}
 
+	@Override
+	public void stop() throws Exception {
+		System.out.println("Shut down...");
+	}
+
 	private String getDate() {
 		LocalDateTime localDateTime = LocalDateTime.now();
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss.SSS");
