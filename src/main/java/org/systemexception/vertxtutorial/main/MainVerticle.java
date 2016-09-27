@@ -3,6 +3,9 @@ package org.systemexception.vertxtutorial.main;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  * @author leo
  * @date 5/11/15 15:58
@@ -12,7 +15,11 @@ public class MainVerticle extends AbstractVerticle {
 	@Override
 	public void start(Future<Void> future) {
 		vertx.createHttpServer().requestHandler(r -> {
-			r.response().end("<h1>Hello from my first Vert.x 3 application</h1>");
+			r.response().setChunked(true);
+			r.response().write("<h1>Hello from my first Vert.x 3 application</h1>");
+			r.response().write("<hr>");
+			r.response().write(getDate());
+			r.response().end();
 		}).listen(8080, result -> {
 			if (result.succeeded()) {
 				future.complete();
@@ -20,5 +27,11 @@ public class MainVerticle extends AbstractVerticle {
 				future.fail(result.cause());
 			}
 		});
+	}
+
+	private String getDate() {
+		LocalDateTime localDateTime = LocalDateTime.now();
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss.SSS");
+		return localDateTime.format(dateTimeFormatter);
 	}
 }
