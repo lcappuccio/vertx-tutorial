@@ -8,11 +8,28 @@
 	<artifactId>vertx-tutorial</artifactId>
 	<version>0.1-SNAPSHOT</version>
 
+	<properties>
+		<vertx.version>3.3.3</vertx.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-core</artifactId>
-			<version>3.3.3</version>
+			<version>${vertx.version}</version>
+		</dependency>
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-unit</artifactId>
+			<version>${vertx.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -42,7 +59,7 @@
 										implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<manifestEntries>
 										<Main-Class>io.vertx.core.Starter</Main-Class>
-										<Main-Verticle>org.systemexception.vertxtutorial.Main.MainVerticle</Main-Verticle>
+										<Main-Verticle>org.systemexception.vertxtutorial.main.MainVerticle</Main-Verticle>
 									</manifestEntries>
 								</transformer>
 							</transformers>
