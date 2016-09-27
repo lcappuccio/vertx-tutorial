@@ -1,4 +1,4 @@
-package org.systemexception.vertxtutorial.main;
+package org.systemexception.vertxtutorial;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;

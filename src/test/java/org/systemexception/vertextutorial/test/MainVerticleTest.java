@@ -8,7 +8,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.systemexception.vertxtutorial.main.MainVerticle;
+import org.systemexception.vertxtutorial.MainVerticle;
 
 @RunWith(VertxUnitRunner.class)
 public class MainVerticleTest {
